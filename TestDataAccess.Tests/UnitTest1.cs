@@ -6,25 +6,29 @@ namespace TestDataAccess.Tests
     public class JsonFile
     {
         private const string RootDirectory = "//";
+
         private const string JsonFileName = "testData.json";
+
         private static readonly string FullFilePath = $"{RootDirectory}{JsonFileName}";
 
         [TestCase]
         public void CanCreateEmptyJSONFile()
         {
-            Assert.DoesNotThrow(() =>
-            {
-                var jsonFile = CreateJSONFile("");
-            });
+            Assert.DoesNotThrow(
+                () =>
+                    {
+                        var jsonFile = CreateJSONFile("");
+                    });
         }
 
         [TestCase]
         public void CanCreateNewJSONFile()
         {
-            Assert.DoesNotThrow(() =>
-            {
-                var jsonFile = CreateJSONFile(FullFilePath);
-            });
+            Assert.DoesNotThrow(
+                () =>
+                    {
+                        var jsonFile = CreateJSONFile(FullFilePath);
+                    });
         }
 
         [TestCase]
@@ -34,10 +38,11 @@ namespace TestDataAccess.Tests
             var testDataKey = "Animals";
             var testDataIndex = 0;
 
-            Assert.DoesNotThrow(() =>
-            {
-                var jsonReader = CreateJSONReader(jsonFile, testDataKey, testDataIndex);
-            });
+            Assert.DoesNotThrow(
+                () =>
+                    {
+                        var jsonReader = CreateJSONReader(jsonFile, testDataKey, testDataIndex);
+                    });
         }
 
         [TestCase]
@@ -68,4 +73,5 @@ namespace TestDataAccess.Tests
                 return new JSONFile(filePath);
             }
         }
+    }
 }
